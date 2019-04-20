@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "AddRestaurantModel",
+    "type": "object",
+    "properties": {
+        "name": { "type": "string" },
+        "location": { "type": "string" },
+        "food": { "type": "string" },
+        "contactInfo": { "type": "string" },
+        "schedule": { "type": "string" },
+        "images": { "type": "array" }
+    }
+}

@@ -145,7 +145,18 @@ functions:
       - http:
           path: auth/changePass
           method: post
-
+  addComm:
+    handler: functions/addComm.handler
+    events:
+      - http:
+          path: rest/addComm
+          method: post
+  addScore:
+    handler: functions/addScore.handler
+    events:
+      - http:
+          path: rest/addScore
+          method: post
           
 resources:
   Resources:

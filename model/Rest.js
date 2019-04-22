@@ -38,6 +38,43 @@ class Rests{
                 return result
             });
     }
+    addComment(id,comment){
+        const params = {
+            TableName: TABLE_NAME,
+            Key: {
+                id 
+            },
+            UpdateExpression: "SET comments = list_append(comments, :ps)",
+            ExpressionAttributeValues: {
+                ":ps": [comment]
+            }
+
+        };
+        return this.dynamodb.update(params).promise()
+            .then( result => {
+                console.log(result)
+                return result
+            });
+
+    }
+    addScore(id,score){
+        const params = {
+            TableName: TABLE_NAME,
+            Key: {
+                id 
+            },
+            UpdateExpression: "SET score = list_append(score, :ps)",
+            ExpressionAttributeValues: {
+                ":ps": [score]
+            }
+
+        };
+        return this.dynamodb.update(params).promise()
+            .then( result => {
+                return result
+            });
+
+    }
 }
 
 module.exports = Rests;

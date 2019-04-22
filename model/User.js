@@ -43,7 +43,24 @@ class Users {
         .then(result => {
             return result.Items
         })
-    }
+    };
+    update(email, password){
+        const params = {
+            TableName: TABLE_NAME,
+            Key: {
+                email
+            },
+            UpdateExpression: "set password = :ps",
+            ExpressionAttributeValues: {
+                ":ps": password
+            }
+        };
+        return this.dynamodb.update(params).promise()
+        .then(result =>{
+            return result
+        })
+    };
+
 };
 
 module.exports = Users;

@@ -139,6 +139,12 @@ functions:
       - http:
           path: rest/addImg
           method: post
+  changePass:
+    handler: functions/changePass.handler
+    events:
+      - http:
+          path: auth/changePass
+          method: post
 
           
 resources:

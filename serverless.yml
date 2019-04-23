@@ -75,6 +75,12 @@ functions:
       - http:
           path: auth/signIn
           method: post
+  signInAdmin:
+    handler: functions/signInAdmin.handler
+    events:
+      - http:
+          path: auth/signInAdmin
+          method: post
   signUp:
     handler: functions/signUp.handler
     events:

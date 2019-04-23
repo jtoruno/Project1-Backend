@@ -157,6 +157,18 @@ functions:
       - http:
           path: rest/addScore
           method: post
+  addImgrest:
+    handler: functions/imageRest.handler
+    events:
+      - http:
+          path: rest/addImgrest
+          method: post
+  updateRest:
+    handler: functions/updateRest.handler
+    events:
+      - http:
+          path: rest/updateRest
+          method: post
           
 resources:
   Resources:

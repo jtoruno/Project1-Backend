@@ -13,6 +13,7 @@ module.exports.handler = (event) => {
             const { food } = body
             const { contactInfo } = body
             const { schedule } = body
+            const { cost } = body
             
             const { images } = body
             
@@ -29,7 +30,7 @@ module.exports.handler = (event) => {
                     id : Uuid(),
                     name, x, y, food, contactInfo,
                     schedule, images,
-                    cost : 0,
+                    cost : cost,
                     score : [],
                     comments: [],
                 }

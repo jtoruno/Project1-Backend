@@ -75,6 +75,49 @@ class Rests{
             });
 
     }
+    addImg(id, imgUrl){
+        const params = {
+            TableName: TABLE_NAME,
+            Key: {
+                id 
+            },
+            UpdateExpression: "SET images = list_append(images, :ps)",
+            ExpressionAttributeValues: {
+                ":ps": [imgUrl]
+            }
+
+        };
+        return this.dynamodb.update(params).promise()
+            .then( result => {
+                return result
+            });
+
+    }
+    updateRest(id,name, food, schedule, contactInfo, cost, x, y){
+        const params = {
+            TableName: TABLE_NAME,
+            Key: {
+                id 
+            },
+            UpdateExpression: "set #N = :n, food = :f, schedule = :s, contactInfo = :c, cost = :co, x = :x, y =:y",
+            ExpressionAttributeNames: {
+                "#N": "name"
+            },
+            ExpressionAttributeValues: {
+                ":n": name,
+                ":f":food,
+                ":s":schedule,
+                ":c":contactInfo,
+                ":co":cost,
+                ":x":x,
+                ":y":y,
+            },
+        }
+        return this.dynamodb.update(params).promise()
+            .then( result => {
+                return result
+            });
+    }
 }
 
 module.exports = Rests;
